@@ -9,7 +9,7 @@
 // v2112 decimal in hex
 #define DEVICE_VER 0x0840
 #define MANUFACTURER Peter Lyons
-#define PRODUCT squeezebox-v2112-tbkmini
+#define PRODUCT squeezeboxtbkmini
 
 /* key matrix size */
 #define MATRIX_ROWS 6
