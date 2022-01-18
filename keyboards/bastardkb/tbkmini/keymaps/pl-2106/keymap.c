@@ -27,6 +27,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 enum combos {
 
   /* COMBO_COLON, */
+  COMBO_FUZZBALL,
   /* COMBO_ENTER, */
   /* COMBO_EXCLAMATION, */
   /* COMBO_MINUS, */
@@ -46,6 +47,7 @@ enum combos {
 };
 
 // const uint16_t PROGMEM combo_colon[] = {KC_U, KC_K, COMBO_END};
+const uint16_t PROGMEM combo_fuzzball[] = {KC_U, KC_H, COMBO_END};
 // const uint16_t PROGMEM combo_enter[] = {KC_E, KC_J, COMBO_END};
 // const uint16_t PROGMEM combo_exclamation[] = {KC_Z, KC_DOT, COMBO_END};
 // const uint16_t PROGMEM combo_minus2[] = {KC_S, KC_Z, COMBO_END};
@@ -65,6 +67,7 @@ const uint16_t PROGMEM combo_escape[] = {KC_J, KC_K, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
 
   // [COMBO_COLON] = COMBO(combo_colon, KC_COLON),
+  [COMBO_FUZZBALL] = COMBO(combo_fuzzball, FUZZBALL),
   // [COMBO_ENTER] = COMBO(combo_enter, KC_ENT),
   // [COMBO_EXCLAMATION] = COMBO(combo_exclamation, KC_EXCLAIM),
   // [COMBO_MINUS2] = COMBO(combo_minus2, KC_MINUS),
@@ -124,7 +127,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 KC_TAB, KC_QUOTE, TD(TD_COMMA), LALT_T(KC_DOT), LCTL_T(KC_P), KC_Y,
 LCTL_T(KC_ESC), MT(MOD_LGUI | MOD_LALT, KC_A), KC_O, KC_E, KC_U, KC_I,
 KC_SCLN, KC_COLON /*TD(TD_SEMI)*/, KC_Q, KC_J, KC_K, KC_X,
-LT(KBFN, FUZZBALL), LT(EDIT, LEADER), OSM(MOD_LSFT),
+LT(KBFN, KC_BSPC), LT(EDIT, LEADER), OSM(MOD_LSFT),
 
 // right hand
 KC_F, RCTL_T(KC_G), LALT_T(KC_C), KC_R, KC_L, KC_SLSH,

@@ -7,6 +7,6 @@
 #define PERMISSIVE_HOLD
 #define TAPPING_TERM 300
 
-#define COMBO_COUNT 4
+#define COMBO_COUNT 5
 
 #define NO_AUTO_SHIFT_ALPHA
