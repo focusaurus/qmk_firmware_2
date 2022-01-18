@@ -23,13 +23,17 @@
 #define MANUFACTURER Bastard Keyboards
 #define PRODUCT TBK Mini
 
-#define MATRIX_ROWS 8
-#define MATRIX_COLS 6
+#define MATRIX_ROWS 6
+#define MATRIX_COLS 7
 #define RGBLIGHT_LIMIT_VAL 180
-#define MATRIX_ROW_PINS { B5, F7, F6, B6 }
-#define MATRIX_COL_PINS { B4, E6, C6, B1, B3, B2 }
+#define MATRIX_ROW_PINS { B6, B2, B3 } // for focusaurus hand wired
+#define MATRIX_COL_PINS { B5, B4, E6, D7, C6, D4, D0 } // for focusaurus hand wired
 
-#define DIODE_DIRECTION ROW2COL
+// OFFICIAL KIT: #define MATRIX_ROW_PINS { B5, F7, F6, B6 }
+// OFFICIAL KIT: #define MATRIX_COL_PINS { B4, E6, C6, B1, B3, B2 }
+
+#define DIODE_DIRECTION COL2ROW // for focusaurus hand wired
+// OFFICIAL KIT: #define DIODE_DIRECTION ROW2COL
 
 #define RGB_DI_PIN D2
 #define RGBLED_NUM 42

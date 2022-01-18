@@ -1,0 +1,11 @@
+Left hand RJ9 connector:
+
+black: GND
+red: VCC
+yellow: D1
+
+Right hand RJ9 connector:
+
+yellow: GND
+green: VCC
+black: D1
