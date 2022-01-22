@@ -28,11 +28,11 @@
 // Left side is B5, B4, E6, D7, C6, D4, D0, D1, GND, GND, D2, D3
 // right side is B6, B2, B3, B1, F7, F6, F5, F4, VCC, RST, GND, B0
 // For squeezebox v2112
-// #define MATRIX_ROW_PINS { B5, B4, E6 }
-// #define MATRIX_COL_PINS { B6, B2, B3, B1, F7, F6, F5 }
+#define MATRIX_ROW_PINS { B5, B4, E6 }
+#define MATRIX_COL_PINS { B6, B2, B3, B1, F7, F6, F5 }
 // For bastardkb/tbkmini
-#define MATRIX_ROW_PINS { B6, B2, B3 }
-#define MATRIX_COL_PINS { B5, B4, E6, D7, C6, D4, D0 }
+// #define MATRIX_ROW_PINS { B6, B2, B3 }
+// #define MATRIX_COL_PINS { B5, B4, E6, D7, C6, D4, D0 }
 /* COL2ROW, ROW2COL */
 #define DIODE_DIRECTION COL2ROW
 /*
