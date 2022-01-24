@@ -26,94 +26,63 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
 enum combos {
 
-  /* COMBO_COLON, */
-  /* COMBO_ENTER, */
-  /* COMBO_EXCLAMATION, */
-  /* COMBO_MINUS, */
-  /* COMBO_MINUS2, */
-  /* COMBO_PIPE, */
-  /* COMBO_QUESTION, */
-  COMBO_SEMICOLON,
-  COMBO_FUZZBALL,
-  /* COMBO_SLASH, */
-  /* COMBO_SPACE, */
-  /* COMBO_TAB, */
-  /* COMBO_TILDE, */
-  COMBO_BACKSPACE,
-  COMBO_BACKSPACE2,
   /* COMBO_BRACKETS, */
-  COMBO_ESCAPE,
   /* COMBO_PARENS, */
+  COMBO_BASH_VAR,
+  COMBO_ESCAPE,
+  COMBO_FUZZBALL,
+  COMBO_QUOTE_VAR
 
 };
 
-const uint16_t PROGMEM combo_semicolon[] = {KC_COLON, KC_Q, COMBO_END};
-const uint16_t PROGMEM combo_fuzzball[] = {KC_U, KC_H, COMBO_END};
-// const uint16_t PROGMEM combo_enter[] = {KC_E, KC_J, COMBO_END};
-// const uint16_t PROGMEM combo_exclamation[] = {KC_Z, KC_DOT, COMBO_END};
-// const uint16_t PROGMEM combo_minus2[] = {KC_S, KC_Z, COMBO_END};
-// const uint16_t PROGMEM combo_minus[] = {KC_N, KC_S, COMBO_END};
-// const uint16_t PROGMEM combo_pipe[] = {KC_Z, KC_P, COMBO_END};
-// const uint16_t PROGMEM combo_question[] = {KC_Z, KC_COMMA, COMBO_END};
-// const uint16_t PROGMEM combo_reset[] = {KC_F, KC_L, COMBO_END};
-// const uint16_t PROGMEM combo_slash[] = {KC_T, KC_W, COMBO_END};
-// const uint16_t PROGMEM combo_space[] = {KC_U, KC_K, COMBO_END};
-/* const uint16_t PROGMEM combo_tab[] = {KC_O, KC_Q, COMBO_END}; */
-// const uint16_t PROGMEM combo_tilde[] = {KC_H, KC_M, COMBO_END};
-const uint16_t PROGMEM combo_backspace[] = {KC_Q, KC_J, COMBO_END};
-const uint16_t PROGMEM combo_backspace2[] = {KC_U, KC_K, COMBO_END};
 // const uint16_t PROGMEM combo_brackets[] = {KC_J, KC_E, COMBO_END};
-const uint16_t PROGMEM combo_escape[] = {KC_J, KC_K, COMBO_END};
 // const uint16_t PROGMEM combo_parens[] = {KC_U, KC_K, COMBO_END};
+const uint16_t PROGMEM combo_bash_var[] = {KC_B, KC_V, COMBO_END};
+const uint16_t PROGMEM combo_escape[] = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM combo_fuzzball[] = {KC_U, KC_H, COMBO_END};
+const uint16_t PROGMEM combo_quote_var[] = {KC_Q, KC_V, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
 
-  [COMBO_SEMICOLON] = COMBO(combo_semicolon, KC_SCLN),
-  [COMBO_FUZZBALL] = COMBO(combo_fuzzball, FUZZBALL),
-  // [COMBO_ENTER] = COMBO(combo_enter, KC_ENT),
-  // [COMBO_EXCLAMATION] = COMBO(combo_exclamation, KC_EXCLAIM),
-  // [COMBO_MINUS2] = COMBO(combo_minus2, KC_MINUS),
-  // [COMBO_MINUS] = COMBO(combo_minus, KC_MINUS),
-  // [COMBO_PIPE] = COMBO(combo_pipe, KC_PIPE),
-  // [COMBO_QUESTION] = COMBO(combo_question, KC_QUES),
-  // [COMBO_SLASH] = COMBO(combo_slash, KC_SLSH),
-  // [COMBO_SPACE] = COMBO(combo_space, KC_SPC),
-  // [COMBO_TAB] = COMBO(combo_tab, KC_TAB),
-  // [COMBO_TILDE] = COMBO(combo_tilde, KC_TILDE),
-  [COMBO_BACKSPACE] = COMBO(combo_backspace, KC_BSPC),
-  [COMBO_BACKSPACE2] = COMBO(combo_backspace2, KC_BSPC),
   // [COMBO_BRACKETS] = COMBO_ACTION(combo_brackets),
-  [COMBO_ESCAPE] = COMBO(combo_escape, KC_ESC),
   // [COMBO_PARENS] = COMBO_ACTION(combo_parens),
+  [COMBO_BASH_VAR] = COMBO_ACTION(combo_bash_var),
+  [COMBO_ESCAPE] = COMBO(combo_escape, KC_ESC),
+  [COMBO_FUZZBALL] = COMBO(combo_fuzzball, FUZZBALL),
+  [COMBO_QUOTE_VAR] = COMBO_ACTION(combo_quote_var)
 
 };
-/*
+
 void process_combo_event(uint16_t combo_index, bool pressed) {
   switch(combo_index) {
-    case COMBO_BRACKETS:
+    case COMBO_QUOTE_VAR:
       if (pressed) {
-        tap_code16(KC_LBRC);
-        tap_code16(KC_RBRC);
+        tap_code16(LSFT(KC_QUOTE));
+        tap_code16(LSFT(KC_4));
+        tap_code16(KC_LCBR);
+        tap_code16(KC_RCBR);
+        tap_code16(LSFT(KC_QUOTE));
+        tap_code16(KC_LEFT);
         tap_code16(KC_LEFT);
       }
       break;
-    case COMBO_PARENS:
+    case COMBO_BASH_VAR:
       if (pressed) {
-        tap_code16(KC_LPRN);
-        tap_code16(KC_RPRN);
+        tap_code16(LSFT(KC_4));
+        tap_code16(KC_LCBR);
+        tap_code16(KC_RCBR);
         tap_code16(KC_LEFT);
       }
       break;
   }
 }
-*/
+
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
 
     DVORAK,
     MACOS,
-    EDIT,
-    NUMBERS,
+    NAVNUM,
     BANG,
     KBFN,
     VIEW
@@ -132,14 +101,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 KC_TAB, KC_QUOTE, TD(TD_COMMA), LALT_T(KC_DOT), LCTL_T(KC_P), KC_Y,
 MT(MOD_LCTL, KC_ESC), MT(MOD_LGUI | MOD_LALT, KC_A), KC_O, KC_E, KC_U, KC_I,
 KC_SCLN, KC_COLON /*TD(TD_SEMI)*/, KC_Q, KC_J, KC_K, KC_X,
-LT(KBFN, KC_BSPC), LT(EDIT, LEADER), OSM(MOD_LSFT),
+LT(KBFN, KC_BSPC), LT(NAVNUM, LEADER), OSM(MOD_LSFT),
 
 // TODO 1-finger combos for hm, tw, nv, sz
 // right hand
 KC_F, RCTL_T(KC_G), LALT_T(KC_C), KC_R, KC_L, KC_SLSH,
 KC_D, KC_H, KC_T, KC_N, KC_S, KC_MINUS,
 KC_B, KC_M, KC_W, KC_V, KC_Z, OSM(MOD_LALT),
-LT(BANG, KC_ENT), LT(NUMBERS, KC_SPC), OSM(MOD_RCTL)
+KC_ENT, LT(BANG, KC_SPC), OSM(MOD_RCTL)
 
 ), [MACOS] = LAYOUT(
 
@@ -153,27 +122,8 @@ KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 KC_TRNS, KC_TRNS, OSM(MOD_RGUI)
 
-), [EDIT] = LAYOUT(
+), [NAVNUM] = LAYOUT(
 
-// left hand
-KC_NO, LGUI(KC_TAB), KC_BSPC, KC_SPC, KC_DEL, KC_PGUP,
-LSFT(KC_TAB), KC_TAB, KC_LEFT, KC_UP, KC_RIGHT, KC_ENT,
-LCTL(LSFT(KC_TAB)), LCTL(KC_TAB), KC_HOME, KC_DOWN, KC_END, KC_PGDN,
-KC_TRNS, KC_TRNS, KC_TRNS,
-
-// right hand
-RSFT(KC_EQL), KC_LCBR, KC_RCBR, LSFT(KC_GRV), KC_PIPE, KC_NO,
-KC_EQL, KC_LPRN, KC_RPRN, KC_SLSH, KC_GRV, KC_NO,
-KC_BSLS, KC_LBRC /*TD(TD_LBRC)*/, KC_RBRC /*TD(TD_RBRC)*/, KC_NO, KC_MINUS, KC_NO,
-KC_TRNS, KC_TRNS, KC_TRNS
-
-), [NUMBERS] = LAYOUT(
-
-// HEADS UP: This is a copy of the left hand from the EDIT
-// layer because QMK layers are dumb and don't really
-// work in any kind of reasonable way.
-// Without this copying, the default layer of DVORAK would fire
-// which is not what I want
 // left hand
 KC_NO, LGUI(KC_TAB), KC_BSPC, KC_SPC, KC_DEL, KC_PGUP,
 LSFT(KC_TAB), KC_TAB, KC_LEFT, KC_UP, KC_RIGHT, KC_ENT,
@@ -185,25 +135,30 @@ KC_COMMA, KC_7, KC_8, KC_9, LSFT(KC_MINUS), KC_TRNS,
 KC_DOT, KC_4, KC_5, KC_6, KC_0, KC_TRNS,
 KC_COLON, KC_1, KC_2, KC_3, KC_MINUS, KC_TRNS,
 KC_TRNS, KC_TRNS, KC_TRNS
+// right hand
+/* RSFT(KC_EQL), KC_LCBR, KC_RCBR, LSFT(KC_GRV), KC_PIPE, KC_NO, */
+/* KC_EQL, KC_LPRN, KC_RPRN, KC_SLSH, KC_GRV, KC_NO, */
+/* KC_BSLS, KC_LBRC #<{(|TD(TD_LBRC)|)}>#, KC_RBRC #<{(|TD(TD_RBRC)|)}>#, KC_NO, KC_MINUS, KC_NO, */
+/* KC_TRNS, KC_TRNS, KC_TRNS */
 
 ), [BANG] = LAYOUT(
 
-// HEADS UP: This is a copy of the left hand from the EDIT
-// layer because QMK layers are dumb and don't really
-// work in any kind of reasonable way.
-// Without this copying, the default layer of DVORAK would fire
-// which is not what I want
-// left hand
-KC_NO, LGUI(KC_TAB), KC_BSPC, KC_SPC, KC_DEL, KC_PGUP,
-LSFT(KC_TAB), KC_TAB, KC_LEFT, KC_UP, KC_RIGHT, KC_ENT,
-LCTL(LSFT(KC_TAB)), LCTL(KC_TAB), KC_HOME, KC_DOWN, KC_END, KC_PGDN,
+// punctuation: . , : ; ! - ? _
+// pairs: () {} [] <>
+// quotes: ' " `
+/*// unix: ~ / | \ */
+// numpad symbols: ! @ # $ % ^ & *
+// math: + =
+//
+KC_NO, KC_LT, KC_GT, KC_LCBR, KC_RCBR, KC_NO,
+KC_GRV, KC_QUOTE, LSFT(KC_QUOTE), KC_LPRN, KC_RPRN, KC_NO,
+KC_SCLN, KC_COLON, KC_NO, KC_LBRC, KC_RBRC, KC_NO,
 KC_TRNS, KC_TRNS, KC_TRNS,
 
 // right hand
-LSFT(KC_EQL), LSFT(KC_7), LSFT(KC_8), KC_SLSH, KC_PIPE, KC_NO,
-KC_EQL, LSFT(KC_4), LSFT(KC_5), LSFT(KC_6), KC_MINUS, KC_NO,
-// TODO maybe combo for a pair of curly braces for bash vars?
-KC_NO, LSFT(KC_1), LSFT(KC_2), LSFT(KC_3), KC_QUES, KC_NO,
+LSFT(KC_EQL), LSFT(KC_7), LSFT(KC_8), KC_NO, LSFT(KC_GRV), KC_PIPE,
+KC_EQL, LSFT(KC_4), LSFT(KC_5), LSFT(KC_6), KC_SLSH, KC_MINUS,
+KC_BSLS, LSFT(KC_1), LSFT(KC_2), LSFT(KC_3), KC_QUES, LSFT(KC_MINUS),
 KC_TRNS, KC_TRNS, KC_TRNS
 
 ), [KBFN] = LAYOUT(
