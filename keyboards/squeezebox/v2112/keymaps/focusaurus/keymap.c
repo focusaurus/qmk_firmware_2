@@ -30,6 +30,7 @@ enum combos {
   /* COMBO_PARENS, */
   COMBO_BASH_VAR,
   COMBO_ESCAPE,
+  COMBO_ESCAPE_CORNER,
   COMBO_FUZZBALL,
   COMBO_QUOTE_VAR
 
@@ -39,6 +40,7 @@ enum combos {
 // const uint16_t PROGMEM combo_parens[] = {KC_U, KC_K, COMBO_END};
 const uint16_t PROGMEM combo_bash_var[] = {KC_B, KC_V, COMBO_END};
 const uint16_t PROGMEM combo_escape[] = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM combo_escape_corner[] = {KC_U, KC_K, COMBO_END};
 const uint16_t PROGMEM combo_fuzzball[] = {KC_U, KC_H, COMBO_END};
 const uint16_t PROGMEM combo_quote_var[] = {KC_Q, KC_V, COMBO_END};
 
@@ -48,6 +50,7 @@ combo_t key_combos[COMBO_COUNT] = {
   // [COMBO_PARENS] = COMBO_ACTION(combo_parens),
   [COMBO_BASH_VAR] = COMBO_ACTION(combo_bash_var),
   [COMBO_ESCAPE] = COMBO(combo_escape, KC_ESC),
+  [COMBO_ESCAPE_CORNER] = COMBO(combo_escape_corner, KC_ESC),
   [COMBO_FUZZBALL] = COMBO(combo_fuzzball, FUZZBALL),
   [COMBO_QUOTE_VAR] = COMBO_ACTION(combo_quote_var)
 
@@ -98,16 +101,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // TODO 1-finger combos for uk, ej, oq
 // TODO 1-finger combo for semicolon
 // left hand
-KC_TAB, KC_QUOTE, TD(TD_COMMA), LALT_T(KC_DOT), LCTL_T(KC_P), KC_Y,
+KC_TAB, KC_QUOTE, TD(TD_COMMA), KC_DOT, KC_P, KC_Y,
 MT(MOD_LCTL, KC_ESC), MT(MOD_LGUI | MOD_LALT, KC_A), KC_O, KC_E, KC_U, KC_I,
-KC_SCLN, KC_COLON /*TD(TD_SEMI)*/, KC_Q, KC_J, KC_K, KC_X,
+KC_SCLN, KC_COLON /*TD(TD_SEMI)*/, KC_Q, LALT_T(KC_J), LCTL_T(KC_K), KC_X,
 LT(KBFN, KC_BSPC), LT(NAVNUM, LEADER), OSM(MOD_LSFT),
 
 // TODO 1-finger combos for hm, tw, nv, sz
 // right hand
-KC_F, RCTL_T(KC_G), LALT_T(KC_C), KC_R, KC_L, KC_SLSH,
+KC_F, KC_G, KC_C, KC_R, KC_L, KC_SLSH,
 KC_D, KC_H, KC_T, KC_N, KC_S, KC_MINUS,
-KC_B, KC_M, KC_W, KC_V, KC_Z, OSM(MOD_LALT),
+KC_B, RCTL_T(KC_M), LALT_T(KC_W), KC_V, KC_Z, OSM(MOD_LALT),
 KC_ENT, LT(BANG, KC_SPC), OSM(MOD_RCTL)
 
 ), [MACOS] = LAYOUT(
@@ -131,9 +134,9 @@ LCTL(LSFT(KC_TAB)), LCTL(KC_TAB), KC_HOME, KC_DOWN, KC_END, KC_PGDN,
 KC_TRNS, KC_TRNS, KC_TRNS,
 
 // right hand
-KC_COMMA, KC_7, KC_8, KC_9, LSFT(KC_MINUS), KC_TRNS,
-KC_DOT, KC_4, KC_5, KC_6, KC_0, KC_TRNS,
-KC_COLON, KC_1, KC_2, KC_3, KC_MINUS, KC_TRNS,
+KC_COMMA, KC_7, KC_8, KC_9, KC_NO, KC_NO,
+KC_DOT, KC_4, KC_5, KC_6, KC_0, KC_MINUS,
+KC_COLON, KC_1, KC_2, KC_3, KC_NO, LSFT(KC_MINUS),
 KC_TRNS, KC_TRNS, KC_TRNS
 
 ), [BANG] = LAYOUT(
@@ -145,8 +148,8 @@ KC_TRNS, KC_TRNS, KC_TRNS
 // numpad symbols: ! @ # $ % ^ & *
 // math: + =
 //
-KC_NO, KC_LT, KC_GT, KC_LBRC, KC_RBRC, KC_NO,
-KC_GRV, KC_QUOTE, LSFT(KC_QUOTE), KC_LPRN, KC_RPRN, KC_NO,
+KC_NO, KC_LT, KC_GT, KC_LBRC, KC_RBRC, KC_SPC,
+KC_GRV, KC_QUOTE, LSFT(KC_QUOTE), KC_LPRN, KC_RPRN, KC_ENT,
 KC_SCLN, KC_COLON, KC_NO, KC_LCBR, KC_RCBR, KC_NO,
 KC_TRNS, KC_TRNS, KC_TRNS,
 
