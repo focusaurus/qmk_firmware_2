@@ -4,6 +4,14 @@
 #define FUZZBALL KC_F11
 #define SNIPPETS KC_F12
 
+const key_override_t coln_key_override =
+    ko_make_basic(MOD_MASK_SHIFT, KC_COLN, KC_SCLN); // Shift : is ;
+
+const key_override_t** key_overrides = (const key_override_t*[]){
+    &coln_key_override,
+    NULL
+};
+
 enum {
 
   TD_COMMA,
@@ -32,7 +40,8 @@ enum combos {
   COMBO_ESCAPE,
   COMBO_ESCAPE_CORNER,
   COMBO_FUZZBALL,
-  COMBO_QUOTE_VAR
+  COMBO_QUOTE_VAR,
+  COMBO_SEMI,
 
 };
 
@@ -43,6 +52,7 @@ const uint16_t PROGMEM combo_escape[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM combo_escape_corner[] = {KC_U, KC_K, COMBO_END};
 const uint16_t PROGMEM combo_fuzzball[] = {KC_U, KC_H, COMBO_END};
 const uint16_t PROGMEM combo_quote_var[] = {KC_Q, KC_V, COMBO_END};
+const uint16_t PROGMEM combo_semi[] = {KC_Q, KC_COLON, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
 
@@ -52,7 +62,7 @@ combo_t key_combos[COMBO_COUNT] = {
   [COMBO_ESCAPE] = COMBO(combo_escape, KC_ESC),
   [COMBO_ESCAPE_CORNER] = COMBO(combo_escape_corner, KC_ESC),
   [COMBO_FUZZBALL] = COMBO(combo_fuzzball, FUZZBALL),
-  [COMBO_QUOTE_VAR] = COMBO_ACTION(combo_quote_var)
+  [COMBO_SEMI] = COMBO(combo_semi, KC_SCLN),
 
 };
 
