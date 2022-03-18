@@ -34,35 +34,30 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
 enum combos {
 
-  /* COMBO_BRACKETS, */
-  /* COMBO_PARENS, */
   COMBO_BASH_VAR,
   COMBO_ESCAPE,
   COMBO_ESCAPE_CORNER,
   COMBO_FUZZBALL,
   COMBO_QUOTE_VAR,
-  COMBO_SEMI,
+  COMBO_SPACE,
 
 };
 
-// const uint16_t PROGMEM combo_brackets[] = {KC_J, KC_E, COMBO_END};
-// const uint16_t PROGMEM combo_parens[] = {KC_U, KC_K, COMBO_END};
 const uint16_t PROGMEM combo_bash_var[] = {KC_B, KC_V, COMBO_END};
 const uint16_t PROGMEM combo_escape[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM combo_escape_corner[] = {KC_U, KC_K, COMBO_END};
 const uint16_t PROGMEM combo_fuzzball[] = {KC_U, KC_H, COMBO_END};
 const uint16_t PROGMEM combo_quote_var[] = {KC_Q, KC_V, COMBO_END};
-const uint16_t PROGMEM combo_semi[] = {KC_Q, KC_COLON, COMBO_END};
+const uint16_t PROGMEM combo_space[] = {KC_LCBR, KC_RCBR, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
 
-  // [COMBO_BRACKETS] = COMBO_ACTION(combo_brackets),
-  // [COMBO_PARENS] = COMBO_ACTION(combo_parens),
   [COMBO_BASH_VAR] = COMBO_ACTION(combo_bash_var),
   [COMBO_ESCAPE] = COMBO(combo_escape, KC_ESC),
   [COMBO_ESCAPE_CORNER] = COMBO(combo_escape_corner, KC_ESC),
   [COMBO_FUZZBALL] = COMBO(combo_fuzzball, FUZZBALL),
-  [COMBO_SEMI] = COMBO(combo_semi, KC_SCLN),
+  [COMBO_QUOTE_VAR] = COMBO_ACTION(combo_quote_var),
+  [COMBO_SPACE] = COMBO(combo_space, KC_SPC),
 
 };
 
@@ -108,19 +103,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Base */
 [DVORAK] = LAYOUT(
 
-// TODO 1-finger combos for uk, ej, oq
-// TODO 1-finger combo for semicolon
 // left hand
-KC_TAB, KC_QUOTE, TD(TD_COMMA), LALT_T(KC_DOT), LCTL_T(KC_P), KC_Y,
-MT(MOD_LCTL, KC_ESC), MT(MOD_LGUI | MOD_LALT, KC_A), KC_O, KC_E, KC_U, KC_I,
-KC_SCLN, KC_COLON /*TD(TD_SEMI)*/, KC_Q, KC_J, KC_K, KC_X,
+KC_NO, KC_QUOTE, TD(TD_COMMA), LALT_T(KC_DOT), LCTL_T(KC_P), KC_Y,
+KC_NO, MT(MOD_LGUI | MOD_LALT, KC_A), KC_O, KC_E, KC_U, KC_I,
+KC_NO, KC_COLON, KC_Q, KC_J, KC_K, KC_X,
 LT(KBFN, KC_BSPC), LT(NAVNUM, LEADER), OSM(MOD_LSFT),
 
-// TODO 1-finger combos for hm, tw, nv, sz
 // right hand
-KC_F, RCTL_T(KC_G), KC_C, KC_R, KC_L, KC_SLSH,
-KC_D, KC_H, KC_T, KC_N, KC_S, KC_MINUS,
-KC_B, KC_M, LALT_T(KC_W), KC_V, KC_Z, OSM(MOD_LALT),
+KC_F, RCTL_T(KC_G), KC_C, KC_R, KC_L, KC_NO,
+KC_D, KC_H, KC_T, KC_N, KC_S, KC_NO,
+KC_B, KC_M, LALT_T(KC_W), KC_V, KC_Z, KC_NO,
 KC_ENT, LT(BANG, KC_SPC), OSM(MOD_RCTL)
 
 ), [MACOS] = LAYOUT(
