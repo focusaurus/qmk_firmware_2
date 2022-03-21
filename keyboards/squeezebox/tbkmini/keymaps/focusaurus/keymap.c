@@ -90,7 +90,10 @@ enum layer_names {
 
     DVORAK,
     MACOS,
+    NAVPUN,
+    NAVFUN,
     NAVNUM,
+    NAVNUM2,
     BANG,
     KBFN,
     VIEW
@@ -104,19 +107,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [DVORAK] = LAYOUT(
 
 // left hand
-KC_NO, KC_QUOTE, TD(TD_COMMA), LALT_T(KC_DOT), LCTL_T(KC_P), KC_Y,
-KC_NO, MT(MOD_LGUI | MOD_LALT, KC_A), KC_O, KC_E, KC_U, KC_I,
+KC_NO, KC_QUOTE, TD(TD_COMMA), ALT_T(KC_DOT), CTL_T(KC_P), KC_Y,
+KC_NO, LAG_T(KC_A), KC_O, KC_E, KC_U, KC_I,
 KC_NO, KC_COLON, KC_Q, KC_J, KC_K, KC_X,
 LT(KBFN, KC_BSPC), LT(NAVNUM, LEADER), OSM(MOD_LSFT),
 
 // right hand
-KC_F, RCTL_T(KC_G), KC_C, KC_R, KC_L, KC_NO,
+KC_F, CTL_T(KC_G), KC_C, KC_R, KC_L, KC_NO,
 KC_D, KC_H, KC_T, KC_N, KC_S, KC_NO,
-KC_B, KC_M, LALT_T(KC_W), KC_V, KC_Z, KC_NO,
+KC_B, KC_M, ALT_T(KC_W), KC_V, LT(NAVNUM2, KC_Z), KC_NO,
 KC_ENT, LT(BANG, KC_SPC), OSM(MOD_RCTL)
 
 ), [MACOS] = LAYOUT(
 
+// This layer exists only to toggle GUI vs CTL
+// for primary modifier (copy/paste/etc)
+// between linux (default) and macos (layer toggle on)
 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
@@ -128,11 +134,16 @@ KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 KC_TRNS, KC_TRNS, OSM(MOD_RGUI)
 
 ), [NAVNUM] = LAYOUT(
+// This is my current daily driver secondary layer.
+// I activate by holding left thumb on home key
+// It gives me most edit and nav ability with just left hand
+// and right gives me both a numpad and home row mods
+// which pair nicely with arrow keys and backspace
 
 // left hand
 KC_NO, LGUI(KC_TAB), KC_BSPC, KC_SPC, KC_DEL, KC_PGUP,
 LSFT(KC_TAB), KC_TAB, KC_LEFT, KC_UP, KC_RIGHT, KC_ENT,
-LCTL(LSFT(KC_TAB)), LCTL(KC_TAB), KC_HOME, KC_DOWN, KC_END, KC_PGDN,
+C(LSFT(KC_TAB)), C(KC_TAB), KC_HOME, KC_DOWN, KC_END, KC_PGDN,
 KC_TRNS, KC_TRNS, KC_TRNS,
 
 // right hand
@@ -141,19 +152,85 @@ KC_DOT, MT(MOD_LSFT, KC_4), MT(MOD_LCTL, KC_5), MT(MOD_LALT, KC_6), MT(MOD_LGUI,
 KC_COLON, KC_1, KC_2, KC_3, KC_MINUS, KC_NO,
 KC_TRNS, KC_TRNS, KC_TRNS
 
+), [NAVPUN] = LAYOUT(
+// Experimental. Not actively used. Nice because I can
+// type source code block structure staying in this layer like
+// () {
+//
+// }
+// but not home row mods on right hand because QMK mod-taps
+// are limited to basic, unshifted keycodes for the tap and 
+// most of my home row keys on the right side of this layer 
+// are shifted. :-( big time.
+
+// left hand
+KC_NO, G(KC_TAB), KC_BSPC, KC_SPC, KC_DEL, KC_PGUP,
+LSFT(KC_TAB), KC_TAB, KC_LEFT, KC_UP, KC_RIGHT, KC_ENT,
+C(S(KC_TAB)), C(KC_TAB), KC_HOME, KC_DOWN, KC_END, KC_PGDN,
+KC_TRNS, KC_TRNS, KC_TRNS,
+
+// right hand
+KC_GT, KC_LBRC, KC_RBRC, S(KC_QUOTE), KC_NO, KC_NO,
+KC_DOT, KC_LPRN, KC_RPRN, MT(MOD_LALT, KC_QUOTE), GUI_T(KC_MINUS), KC_NO,
+KC_LT, KC_LCBR, KC_RCBR, KC_GRV, S(KC_MINUS), KC_NO,
+KC_TRNS, KC_TRNS, KC_TRNS
+
+), [NAVFUN] = LAYOUT(
+// Experimental. Not actively used. Could I get right hand
+// home row mods to combine with my nav layer by doing
+// left nav and right function keys?
+
+// left hand
+KC_NO, KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_NO,
+KC_NO, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, KC_NO,
+KC_NO, LAG(KC_LEFT), LAG(KC_DOWN), LAG(KC_E), LAG(KC_RIGHT), KC_NO,
+KC_TRNS, KC_TRNS, KC_TRNS,
+
+// right hand
+KC_NO, KC_F7, KC_F8, KC_F9, KC_F12, KC_NO,
+KC_NO, SFT_T(KC_F4), CTL_T(KC_F5), ALT_T(KC_F6), GUI_T(KC_F11), KC_NO,
+KC_NO, KC_F1, KC_F2, KC_F3, KC_F10, KC_NO,
+KC_TRNS, KC_TRNS, KC_TRNS
+
+), [NAVNUM2] = LAYOUT(
+// This is an alternative flavor of NAVNUM designed to let me
+// do numbers with right hand only for like 2FA codes where 
+// I have my phone in my left hand.
+// I activate with my right pinky but it's a bit uncomfortable.
+
+// left hand
+KC_NO, LGUI(KC_TAB), KC_BSPC, KC_SPC, KC_DEL, KC_PGUP,
+LSFT(KC_TAB), KC_TAB, KC_LEFT, KC_UP, KC_RIGHT, KC_ENT,
+C(LSFT(KC_TAB)), C(KC_TAB), KC_HOME, KC_DOWN, KC_END, KC_PGDN,
+KC_TRNS, KC_TRNS, KC_TRNS,
+
+// right hand
+KC_DOT, KC_7, KC_8, KC_9, LSFT(KC_MINUS), KC_NO,
+KC_0, MT(MOD_LSFT, KC_4), MT(MOD_LCTL, KC_5), MT(MOD_LALT, KC_6), MT(MOD_LGUI, KC_0), KC_NO,
+KC_COLON, KC_1, KC_2, KC_3, KC_MINUS, KC_NO,
+KC_TRNS, KC_TRNS, KC_TRNS
+
 ), [BANG] = LAYOUT(
 
-// punctuation: . , : ; ! - ? _
+// This is my both-hands symbol layer.
+// I used to have symbols distributed across 3 layers
+// and currently I'm liking having almost everything
+// on a single layer.
+// The current bummer about this is I need a secondary 
+// key for space since I'm holding my normal space key with right
+// thumb to activate this layer.
+
+// punctuation: . , : ; ! ? - _
 // pairs: () {} [] <>
 // quotes: ' " `
-/*// unix: ~ / | \ */
+// unix: ~ / |
 // numpad symbols: ! @ # $ % ^ & *
-// math: + =
+// math: + - * % / =
 // left hand
 KC_NO, LSFT(KC_MINUS), KC_MINUS, KC_LBRC, KC_RBRC, KC_GT,
 KC_NO, KC_QUOTE, LSFT(KC_QUOTE), KC_LPRN, KC_RPRN, KC_ENT,
 KC_NO, KC_COLON, KC_GRV, KC_LCBR, KC_RCBR, KC_LT,
-KC_TRNS, KC_TRNS, KC_TRNS,
+KC_TRNS, KC_SPC, KC_ENT,
 
 // right hand
 LSFT(KC_EQL), LSFT(KC_7), LSFT(KC_8), KC_PIPE, LSFT(KC_GRV), KC_NO,
@@ -162,6 +239,9 @@ KC_BSLS, LSFT(KC_1), LSFT(KC_2), LSFT(KC_3), KC_QUES, KC_NO,
 KC_TRNS, KC_TRNS, KC_TRNS
 
 ), [KBFN] = LAYOUT(
+// This has function keys on the right hand which 
+// I don't use often but are sometimes necessary
+// and the left hand has some assorted keeb stuff.
 
 // left hand
 TG(VIEW), RESET, KC_NO, KC_VOLU, KC_NO, KC_NO,
@@ -177,16 +257,20 @@ KC_TRNS, KC_TRNS, KC_TRNS
 
 ), [VIEW] = LAYOUT(
 
+// This is a layer I can switch into from the KBFN layer
+// if I want to leave navigation available in both hands
+// without holding a key down
+
 // left hand
-TG(VIEW), KC_NO, LCTL(LSFT(KC_TAB)), KC_NO, LCTL(KC_TAB), KC_NO,
+TG(VIEW), KC_NO, C(LSFT(KC_TAB)), KC_NO, C(KC_TAB), KC_NO,
 KC_NO, KC_NO, KC_LEFT, KC_UP, KC_RIGHT, KC_ENT,
-KC_NO, KC_NO, KC_Q, KC_DOWN, LALT(LGUI(KC_X)), KC_NO,
+KC_NO, KC_NO, KC_Q, KC_DOWN, LAG(KC_X), KC_NO,
 TG(VIEW), KC_TRNS, KC_TRNS,
 
 // right hand
-KC_NO, KC_NO, LCTL(LSFT(KC_TAB)), KC_NO, LCTL(KC_TAB), KC_NO,
+KC_NO, KC_NO, C(LSFT(KC_TAB)), KC_NO, C(KC_TAB), KC_NO,
 KC_ENT, KC_LEFT, KC_UP, KC_RIGHT, KC_NO, KC_NO,
-KC_NO, LALT(RGUI(KC_X)), KC_DOWN, KC_Q, KC_NO, KC_NO,
+KC_NO, LAG(KC_X), KC_DOWN, KC_Q, KC_NO, KC_NO,
 KC_TRNS, KC_TRNS, TG(VIEW)
 ),
 };
