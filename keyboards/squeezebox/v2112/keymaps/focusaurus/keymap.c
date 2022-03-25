@@ -44,7 +44,7 @@ enum combos {
 };
 
 const uint16_t PROGMEM combo_bash_var[] = {KC_B, KC_V, COMBO_END};
-const uint16_t PROGMEM combo_escape[] = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM combo_escape[] = {KC_E, KC_U, COMBO_END};
 const uint16_t PROGMEM combo_escape_corner[] = {KC_U, KC_K, COMBO_END};
 const uint16_t PROGMEM combo_fuzzball[] = {KC_U, KC_H, COMBO_END};
 const uint16_t PROGMEM combo_quote_var[] = {KC_Q, KC_V, COMBO_END};
@@ -90,10 +90,7 @@ enum layer_names {
 
     DVORAK,
     MACOS,
-    NAVPUN,
-    NAVFUN,
     NAVNUM,
-    NAVNUM2,
     BANG,
     KBFN,
     VIEW
@@ -107,15 +104,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [DVORAK] = LAYOUT(
 
 // left hand
-KC_NO, KC_QUOTE, TD(TD_COMMA), ALT_T(KC_DOT), CTL_T(KC_P), KC_Y,
+KC_NO, KC_QUOTE, TD(TD_COMMA), KC_DOT, KC_P, KC_Y,
 KC_NO, LAG_T(KC_A), KC_O, KC_E, KC_U, KC_I,
-KC_NO, KC_COLON, KC_Q, KC_J, KC_K, KC_X,
+KC_NO, GUI_T(KC_COLON), ALT_T(KC_Q), CTL_T(KC_J), SFT_T(KC_K), KC_X,
 LT(KBFN, KC_BSPC), LT(NAVNUM, LEADER), OSM(MOD_LSFT),
 
 // right hand
-KC_F, CTL_T(KC_G), KC_C, KC_R, KC_L, KC_NO,
+KC_F, KC_G, KC_C, KC_R, KC_L, KC_NO,
 KC_D, KC_H, KC_T, KC_N, KC_S, KC_NO,
-KC_B, KC_M, ALT_T(KC_W), KC_V, LT(NAVNUM2, KC_Z), KC_NO,
+KC_B, SFT_T(KC_M), CTL_T(KC_W), ALT_T(KC_V), GUI_T(KC_Z), KC_NO,
 KC_ENT, LT(BANG, KC_SPC), OSM(MOD_RCTL)
 
 ), [MACOS] = LAYOUT(
@@ -143,71 +140,13 @@ KC_TRNS, KC_TRNS, OSM(MOD_RGUI)
 // left hand
 KC_NO, LGUI(KC_TAB), KC_BSPC, KC_SPC, KC_DEL, KC_PGUP,
 LSFT(KC_TAB), KC_TAB, KC_LEFT, KC_UP, KC_RIGHT, KC_ENT,
-C(LSFT(KC_TAB)), C(KC_TAB), KC_HOME, KC_DOWN, KC_END, KC_PGDN,
+C(LSFT(KC_TAB)), C(KC_TAB), ALT_T(KC_HOME), CTL_T(KC_DOWN), SFT_T(KC_END), KC_PGDN,
 KC_TRNS, KC_TRNS, KC_TRNS,
 
 // right hand
 KC_COMMA, KC_7, KC_8, KC_9, LSFT(KC_MINUS), KC_NO,
-KC_DOT, MT(MOD_LSFT, KC_4), MT(MOD_LCTL, KC_5), MT(MOD_LALT, KC_6), MT(MOD_LGUI, KC_0), KC_NO,
-KC_COLON, KC_1, KC_2, KC_3, KC_MINUS, KC_NO,
-KC_TRNS, KC_TRNS, KC_TRNS
-
-), [NAVPUN] = LAYOUT(
-// Experimental. Not actively used. Nice because I can
-// type source code block structure staying in this layer like
-// () {
-//
-// }
-// but not home row mods on right hand because QMK mod-taps
-// are limited to basic, unshifted keycodes for the tap and 
-// most of my home row keys on the right side of this layer 
-// are shifted. :-( big time.
-
-// left hand
-KC_NO, G(KC_TAB), KC_BSPC, KC_SPC, KC_DEL, KC_PGUP,
-LSFT(KC_TAB), KC_TAB, KC_LEFT, KC_UP, KC_RIGHT, KC_ENT,
-C(S(KC_TAB)), C(KC_TAB), KC_HOME, KC_DOWN, KC_END, KC_PGDN,
-KC_TRNS, KC_TRNS, KC_TRNS,
-
-// right hand
-KC_GT, KC_LBRC, KC_RBRC, S(KC_QUOTE), KC_NO, KC_NO,
-KC_DOT, KC_LPRN, KC_RPRN, MT(MOD_LALT, KC_QUOTE), GUI_T(KC_MINUS), KC_NO,
-KC_LT, KC_LCBR, KC_RCBR, KC_GRV, S(KC_MINUS), KC_NO,
-KC_TRNS, KC_TRNS, KC_TRNS
-
-), [NAVFUN] = LAYOUT(
-// Experimental. Not actively used. Could I get right hand
-// home row mods to combine with my nav layer by doing
-// left nav and right function keys?
-
-// left hand
-KC_NO, KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_NO,
-KC_NO, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, KC_NO,
-KC_NO, LAG(KC_LEFT), LAG(KC_DOWN), LAG(KC_E), LAG(KC_RIGHT), KC_NO,
-KC_TRNS, KC_TRNS, KC_TRNS,
-
-// right hand
-KC_NO, KC_F7, KC_F8, KC_F9, KC_F12, KC_NO,
-KC_NO, SFT_T(KC_F4), CTL_T(KC_F5), ALT_T(KC_F6), GUI_T(KC_F11), KC_NO,
-KC_NO, KC_F1, KC_F2, KC_F3, KC_F10, KC_NO,
-KC_TRNS, KC_TRNS, KC_TRNS
-
-), [NAVNUM2] = LAYOUT(
-// This is an alternative flavor of NAVNUM designed to let me
-// do numbers with right hand only for like 2FA codes where 
-// I have my phone in my left hand.
-// I activate with my right pinky but it's a bit uncomfortable.
-
-// left hand
-KC_NO, LGUI(KC_TAB), KC_BSPC, KC_SPC, KC_DEL, KC_PGUP,
-LSFT(KC_TAB), KC_TAB, KC_LEFT, KC_UP, KC_RIGHT, KC_ENT,
-C(LSFT(KC_TAB)), C(KC_TAB), KC_HOME, KC_DOWN, KC_END, KC_PGDN,
-KC_TRNS, KC_TRNS, KC_TRNS,
-
-// right hand
-KC_DOT, KC_7, KC_8, KC_9, LSFT(KC_MINUS), KC_NO,
-KC_0, MT(MOD_LSFT, KC_4), MT(MOD_LCTL, KC_5), MT(MOD_LALT, KC_6), MT(MOD_LGUI, KC_0), KC_NO,
-KC_COLON, KC_1, KC_2, KC_3, KC_MINUS, KC_NO,
+KC_DOT, KC_4, KC_5, KC_6, KC_0, KC_NO,
+KC_COLON, SFT_T(KC_1), CTL_T(KC_2), ALT_T(KC_3), GUI_T(KC_MINUS), KC_NO,
 KC_TRNS, KC_TRNS, KC_TRNS
 
 ), [BANG] = LAYOUT(
@@ -229,7 +168,7 @@ KC_TRNS, KC_TRNS, KC_TRNS
 // left hand
 KC_NO, LSFT(KC_MINUS), KC_MINUS, KC_LBRC, KC_RBRC, KC_GT,
 KC_NO, KC_QUOTE, LSFT(KC_QUOTE), KC_LPRN, KC_RPRN, KC_ENT,
-KC_NO, KC_COLON, KC_GRV, KC_LCBR, KC_RCBR, KC_LT,
+KC_NO, KC_SEMI, KC_GRV, KC_LCBR, KC_RCBR, KC_LT,
 KC_TRNS, KC_SPC, KC_ENT,
 
 // right hand
@@ -244,9 +183,9 @@ KC_TRNS, KC_TRNS, KC_TRNS
 // and the left hand has some assorted keeb stuff.
 
 // left hand
-TG(VIEW), RESET, KC_NO, KC_VOLU, KC_NO, KC_NO,
-KC_CAPSLOCK, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO,
-TG(MACOS), KC_NO, KC_NO, KC_VOLD, KC_NO, KC_NO,
+KC_NO, KC_NO, KC_NO, KC_VOLU, TG(MACOS), RESET,
+KC_NO, KC_NO, KC_NO, KC_MUTE, TG(VIEW), KC_NO,
+KC_NO, KC_NO, KC_NO, KC_VOLD, KC_NO, KC_NO,
 KC_TRNS, KC_TRNS, KC_TRNS,
 
 // right hand
@@ -262,14 +201,14 @@ KC_TRNS, KC_TRNS, KC_TRNS
 // without holding a key down
 
 // left hand
-TG(VIEW), KC_NO, C(LSFT(KC_TAB)), KC_NO, C(KC_TAB), KC_NO,
+TG(VIEW), KC_NO, A(KC_LEFT), KC_NO, C(KC_TAB), KC_NO,
 KC_NO, KC_NO, KC_LEFT, KC_UP, KC_RIGHT, KC_ENT,
 KC_NO, KC_NO, KC_Q, KC_DOWN, LAG(KC_X), KC_NO,
 TG(VIEW), KC_TRNS, KC_TRNS,
 
 // right hand
 KC_NO, KC_NO, C(LSFT(KC_TAB)), KC_NO, C(KC_TAB), KC_NO,
-KC_ENT, KC_LEFT, KC_UP, KC_RIGHT, KC_NO, KC_NO,
+KC_ENT, SFT_T(KC_LEFT), CTL_T(KC_UP), ALT_T(KC_RIGHT), GUI_T(KC_NO), KC_NO,
 KC_NO, LAG(KC_X), KC_DOWN, KC_Q, KC_NO, KC_NO,
 KC_TRNS, KC_TRNS, TG(VIEW)
 ),
