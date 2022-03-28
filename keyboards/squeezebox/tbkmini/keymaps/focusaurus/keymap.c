@@ -4,13 +4,13 @@
 #define FUZZBALL KC_F11
 #define SNIPPETS KC_F12
 
-const key_override_t coln_key_override =
-    ko_make_basic(MOD_MASK_SHIFT, KC_COLN, KC_SCLN); // Shift : is ;
+// const key_override_t coln_key_override =
+//     ko_make_basic(MOD_MASK_SHIFT, KC_COLN, KC_SCLN); // Shift : is ;
 
-const key_override_t** key_overrides = (const key_override_t*[]){
-    &coln_key_override,
-    NULL
-};
+// const key_override_t** key_overrides = (const key_override_t*[]){
+//     &coln_key_override,
+//     NULL
+// };
 
 enum {
 
@@ -168,7 +168,7 @@ KC_TRNS, KC_TRNS, KC_TRNS
 // left hand
 KC_NO, LSFT(KC_MINUS), KC_MINUS, KC_LBRC, KC_RBRC, KC_GT,
 KC_NO, KC_QUOTE, LSFT(KC_QUOTE), KC_LPRN, KC_RPRN, KC_ENT,
-KC_NO, KC_SEMI, KC_GRV, KC_LCBR, KC_RCBR, KC_LT,
+KC_NO, KC_SCLN, KC_GRV, KC_LCBR, KC_RCBR, KC_LT,
 KC_TRNS, KC_SPC, KC_ENT,
 
 // right hand

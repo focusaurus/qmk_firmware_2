@@ -4,13 +4,13 @@
 #define FUZZBALL KC_F11
 #define SNIPPETS KC_F12
 
-const key_override_t coln_key_override =
-    ko_make_basic(MOD_MASK_SHIFT, KC_COLN, KC_SCLN); // Shift : is ;
+// const key_override_t coln_key_override =
+//     ko_make_basic(MOD_MASK_SHIFT, KC_COLN, KC_SCLN); // Shift : is ;
 
-const key_override_t** key_overrides = (const key_override_t*[]){
-    &coln_key_override,
-    NULL
-};
+// const key_override_t** key_overrides = (const key_override_t*[]){
+//     &coln_key_override,
+//     NULL
+// };
 
 enum {
 
