@@ -21,10 +21,10 @@
   RC6, RC5, RC4, RC3, RC2, RC1, \
   RD3, RD2, RD1 \
 ) { \
-  { LA1, LA2, LA3, LA4, LA5, LA6, LD3 }, \
+  { LA1, LA2, LA3, LA4, LA5, LA6, LD1 }, \
   { LB1, LB2, LB3, LB4, LB5, LB6, LD2 }, \
-  { LC1, LC2, LC3, LC4, LC5, LC6, LD1 }, \
-  { RA1, RA2, RA3, RA4, RA5, RA6, RD3 }, \
+  { LC1, LC2, LC3, LC4, LC5, LC6, LD3 }, \
+  { RA1, RA2, RA3, RA4, RA5, RA6, RD1 }, \
   { RB1, RB2, RB3, RB4, RB5, RB6, RD2 }, \
-  { RC1, RC2, RC3, RC4, RC5, RC6, RD1 } \
+  { RC1, RC2, RC3, RC4, RC5, RC6, RD3 } \
 }
