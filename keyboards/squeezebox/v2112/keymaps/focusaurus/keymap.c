@@ -89,12 +89,12 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 enum layer_names {
 
     DVORAK,
+    QWERTY,
     MACOS,
     NAVNUM,
     BANG,
     KBFN,
     VIEW,
-    QWERTY
 
 };
 
@@ -115,6 +115,20 @@ KC_F, KC_G, KC_C, KC_R, KC_L, KC_NO,
 KC_D, KC_H, KC_T, KC_N, KC_S, KC_NO,
 KC_B, SFT_T(KC_M), CTL_T(KC_W), ALT_T(KC_V), GUI_T(KC_Z), KC_NO,
 KC_ENT, LT(BANG, KC_SPC), OSM(MOD_RCTL)
+
+), [QWERTY] = LAYOUT(
+
+// left hand
+KC_NO, KC_Q, KC_W, KC_E, KC_R, KC_T,
+KC_NO, KC_A, KC_S, KC_D, KC_F, KC_G,
+KC_NO, KC_Z, KC_X, KC_C, KC_V, KC_B,
+KC_TRNS, KC_TRNS, KC_TRNS,
+
+// right hand
+KC_Y, KC_U, KC_I, KC_O, KC_P, KC_NO,
+KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_NO,
+KC_N, KC_M, KC_COMMA, KC_DOT, KC_SLASH, KC_NO,
+KC_TRNS, KC_TRNS, KC_TRNS
 
 ), [MACOS] = LAYOUT(
 
@@ -202,7 +216,7 @@ KC_TRNS, KC_TRNS, TG(MACOS)
 // without holding a key down
 
 // left hand
-TG(VIEW), KC_NO, A(KC_LEFT), KC_NO, C(KC_TAB), KC_NO,
+KC_NO, KC_NO, A(KC_LEFT), KC_NO, C(KC_TAB), KC_NO,
 KC_NO, KC_NO, KC_LEFT, KC_UP, KC_RIGHT, KC_ENT,
 KC_NO, GUI_T(KC_NO), ALT_T(KC_Q), KC_DOWN, LAG(KC_X), KC_NO,
 TG(VIEW), KC_TRNS, KC_TRNS,
@@ -212,20 +226,5 @@ KC_NO, KC_NO, C(LSFT(KC_TAB)), KC_NO, C(KC_TAB), KC_NO,
 KC_ENT, SFT_T(KC_LEFT), CTL_T(KC_UP), ALT_T(KC_RIGHT), GUI_T(KC_NO), KC_NO,
 KC_NO, LAG(KC_X), KC_DOWN, ALT_T(KC_Q), GUI_T(KC_NO), KC_NO,
 KC_TRNS, KC_TRNS, TG(VIEW)
-),
-[QWERTY] = LAYOUT(
-
-// left hand
-KC_NO, KC_Q, KC_W, KC_E, KC_R, KC_T,
-KC_NO, KC_A, KC_S, KC_D, KC_F, KC_G,
-KC_NO, KC_Z, KC_X, KC_C, KC_V, KC_B,
-LT(KBFN, KC_BSPC), LT(NAVNUM, LEADER), OSM(MOD_LSFT),
-
-// right hand
-KC_Y, KC_U, KC_I, KC_O, KC_P, KC_NO,
-KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_NO,
-KC_N, KC_M, KC_COMMA, KC_DOT, KC_SLASH, KC_NO,
-KC_ENT, LT(BANG, KC_SPC), OSM(MOD_RCTL)
-
 )
 };
