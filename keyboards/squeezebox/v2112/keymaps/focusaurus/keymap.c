@@ -93,7 +93,8 @@ enum layer_names {
     NAVNUM,
     BANG,
     KBFN,
-    VIEW
+    VIEW,
+    QWERTY
 
 };
 
@@ -183,7 +184,7 @@ KC_TRNS, KC_TRNS, KC_TRNS
 // and the left hand has some assorted keeb stuff.
 
 // left hand
-KC_NO, KC_NO, KC_NO, KC_VOLU, KC_NO, RESET,
+KC_NO, TG(QWERTY), KC_NO, KC_VOLU, KC_NO, RESET,
 KC_NO, KC_NO, KC_NO, KC_MUTE, TG(VIEW), KC_NO,
 KC_NO, KC_NO, KC_NO, KC_VOLD, KC_NO, KC_NO,
 KC_TRNS, KC_TRNS, KC_TRNS,
@@ -212,4 +213,19 @@ KC_ENT, SFT_T(KC_LEFT), CTL_T(KC_UP), ALT_T(KC_RIGHT), GUI_T(KC_NO), KC_NO,
 KC_NO, LAG(KC_X), KC_DOWN, ALT_T(KC_Q), GUI_T(KC_NO), KC_NO,
 KC_TRNS, KC_TRNS, TG(VIEW)
 ),
+[QWERTY] = LAYOUT(
+
+// left hand
+KC_NO, KC_Q, KC_W, KC_E, KC_R, KC_T,
+KC_NO, KC_A, KC_S, KC_D, KC_F, KC_G,
+KC_NO, KC_Z, KC_X, KC_C, KC_V, KC_B,
+LT(KBFN, KC_BSPC), LT(NAVNUM, LEADER), OSM(MOD_LSFT),
+
+// right hand
+KC_Y, KC_U, KC_I, KC_O, KC_P, KC_NO,
+KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_NO,
+KC_N, KC_M, KC_COMMA, KC_DOT, KC_SLASH, KC_NO,
+KC_ENT, LT(BANG, KC_SPC), OSM(MOD_RCTL)
+
+)
 };
