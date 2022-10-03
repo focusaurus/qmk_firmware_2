@@ -104,16 +104,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [DVORAK] = LAYOUT(
 
 // left hand
-                    KC_Y, KC_I,
-              KC_L, KC_F, KC_P,
+                    KC_Y, KC_P,
+              KC_F, KC_L, KC_I,
         KC_A, KC_O, KC_E, KC_U,
-        KC_X, KC_Q, KC_J, KC_K,
+        GUI_T(KC_X), ALT_T(KC_Q), CTL_T(KC_J), SFT_T(KC_K),
 LT(KBFN, KC_BSPC), LT(NAVNUM, LEADER), OSM(MOD_LSFT),
+// right hand
 
         KC_D, KC_B,
         KC_G, KC_C, KC_R,
         KC_H, KC_T, KC_N, KC_S,
-        KC_M, KC_W, KC_V, KC_Z,
+        SFT_T(KC_M), CTL_T(KC_W), ALT_T(KC_V), GUI_T(KC_Z),
         KC_ENT, LT(BANG, KC_SPC), OSM(MOD_RCTL)
 
 ), [MACOS] = LAYOUT(
