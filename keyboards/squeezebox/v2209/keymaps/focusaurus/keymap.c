@@ -171,18 +171,20 @@ KC_TRNS, KC_TRNS, KC_TRNS
 // unix: ~ / |
 // numpad symbols: ! @ # $ % ^ & *
 // math: + - * % / =
+// all for reference: ! @ # $ % ^ & * ( ) { } [ ] < > . , / \ | ~ ` ' " - _ ; : + =
+
 // left hand
-                          KC_COMMA, KC_DOT,
-                KC_MINUS, KC_LBRC, KC_RBRC,
+                         KC_LT,   KC_GT,
+               KC_MINUS, KC_LBRC, KC_RBRC,
 KC_QUOTE, LSFT(KC_QUOTE), KC_LPRN, KC_RPRN,
-KC_LT, KC_GRV, KC_LCBR, KC_RCBR,
+KC_SCLN,  KC_GRV,        KC_LCBR, KC_RCBR,
 KC_TRNS, KC_SPC, KC_ENT,
 
 // right hand
-KC_BSLS, KC_PIPE,
-LSFT(KC_7), LSFT(KC_8), KC_PIPE,
-LSFT(KC_4), LSFT(KC_5), LSFT(KC_6), LSFT(KC_GRV),
-LSFT(KC_1), LSFT(KC_2), LSFT(KC_3), KC_QUES,
+KC_NO,      KC_NO,
+LSFT(KC_EQL), KC_PIPE,          LSFT(KC_GRV),
+KC_EQL,       KC_DOT,          KC_SLSH,      KC_NO,
+KC_MINUS,     LSFT(KC_MINUS), KC_BSLS,        KC_QUES,
 KC_TRNS, KC_TRNS, KC_TRNS
 
 ), [KBFN] = LAYOUT(
