@@ -49,9 +49,9 @@ enum combos {
 const uint16_t PROGMEM combo_bash_var[] = {KC_B, KC_V, COMBO_END};
 const uint16_t PROGMEM combo_escape[] = {KC_E, KC_A, COMBO_END};
 const uint16_t PROGMEM combo_fuzzball[] = {KC_A, KC_H, COMBO_END};
-const uint16_t PROGMEM combo_q[] = {KC_O, KC_U, COMBO_END};
+const uint16_t PROGMEM combo_q[] = {KC_Y, KC_O, COMBO_END};
 const uint16_t PROGMEM combo_quote_var[] = {KC_Q, KC_V, COMBO_END};
-const uint16_t PROGMEM combo_z[] = {KC_L, KC_D, COMBO_END};
+const uint16_t PROGMEM combo_z[] = {KC_D, KC_W, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
 
@@ -109,10 +109,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [DVORAK] = LAYOUT(
 
 // left hand
-                   KC_B, KC_COMMA,
+                   KC_X, KC_COMMA,
              KC_Y, KC_O, KC_U,
-       KC_C, KC_I, KC_E, KC_A,
-      GUI_T(KC_G), ALT_T(KC_X), CTL_T(KC_J), SFT_T(KC_K),
+       MT(MOD_LCTL | MOD_LGUI), KC_C), KC_I, KC_E, KC_A,
+      GUI_T(KC_G), ALT_T(KC_B), CTL_T(KC_J), SFT_T(KC_K),
 LT(KBFN, KC_BSPC), LT(NAVNUM, LEADER), OSM(MOD_LSFT),
 
 // right hand
