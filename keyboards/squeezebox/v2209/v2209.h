@@ -23,12 +23,12 @@
   RI1, RM1, RR1, RP1, \
   RT3, RT2, RT1 \
 ) { \
-  { KC_NO, KC_NO, LM4, LI4, KC_NO }, \
-  {   KC_NO, LR3, LM3, LI3, LT3 }, \
-  {     LP2, LR2, LM2, LI2, LT2 }, \
-  {     LP1, LR1, LM1, LI1, LT1 }, \
-  { KC_NO, RI4, RM4, KC_NO, KC_NO }, \
-  {   RT3, RI3, RM3, RR3, KC_NO }, \
-  {   RT2, RI2, RM2, RR2, RP2 }, \
-  {   RT1, RI1, RM1, RR1, RP1 } \
+  { KC_NO, LI4, LM4, KC_NO, KC_NO }, \
+  {   LT3, LI3, LM3, LR3, KC_NO }, \
+  {   LT2, LI2, LM2, LR2, LP2 }, \
+  {   LT1, LI1, LM1, LR1, LP1 }, \
+  { KC_NO, KC_NO, RM4, RI4, KC_NO }, \
+  { KC_NO,   RR3, RM3, RI3, RT3 }, \
+  {   RP2,   RR2, RM2, RI2, RT2 }, \
+  {   RP1,   RR1, RM1, RI1, RT1 } \
 }
