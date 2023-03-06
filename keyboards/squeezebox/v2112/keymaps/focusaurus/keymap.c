@@ -106,15 +106,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 // left hand
 KC_NO, KC_QUOTE, TD(TD_COMMA), KC_DOT, KC_P, KC_Y,
-KC_NO, LAG_T(KC_A), KC_O, KC_E, KC_U, KC_I,
-KC_NO, GUI_T(KC_COLON), ALT_T(KC_Q), CTL_T(KC_J), SFT_T(KC_K), KC_X,
-LT(KBFN, KC_BSPC), LT(NAVNUM, LEADER), OSM(MOD_LSFT),
+KC_NO, GUI_T(KC_A), KC_O, KC_E, KC_U, KC_I,
+KC_NO, KC_SCLN, KC_Q, KC_J, KC_K, KC_X,
+LT(NAVNUM, KC_BSPC), OSL(BANG), OSM(MOD_LSFT),
 
 // right hand
 KC_F, KC_G, KC_C, KC_R, KC_L, KC_NO,
 KC_D, KC_H, KC_T, KC_N, KC_S, KC_NO,
 KC_B, SFT_T(KC_M), CTL_T(KC_W), ALT_T(KC_V), GUI_T(KC_Z), KC_NO,
-KC_ENT, LT(BANG, KC_SPC), OSM(MOD_RCTL)
+LT(KBFN, KC_ENT), LT(NAVNUM, KC_SPC), CTL_T(LEADER)
 
 ), [QWERTY] = LAYOUT(
 
@@ -170,7 +170,7 @@ KC_TRNS, KC_TRNS, KC_TRNS
 // I used to have symbols distributed across 3 layers
 // and currently I'm liking having almost everything
 // on a single layer.
-// The current bummer about this is I need a secondary 
+// The current bummer about this is I need a secondary
 // key for space since I'm holding my normal space key with right
 // thumb to activate this layer.
 
@@ -183,7 +183,7 @@ KC_TRNS, KC_TRNS, KC_TRNS
 // left hand
 KC_NO, LSFT(KC_MINUS), KC_MINUS, KC_LBRC, KC_RBRC, KC_GT,
 KC_NO, KC_QUOTE, LSFT(KC_QUOTE), KC_LPRN, KC_RPRN, KC_ENT,
-KC_NO, KC_SCLN, KC_GRV, KC_LCBR, KC_RCBR, KC_LT,
+KC_NO, KC_COLON, KC_GRV, KC_LCBR, KC_RCBR, KC_LT,
 KC_TRNS, KC_SPC, KC_ENT,
 
 // right hand
