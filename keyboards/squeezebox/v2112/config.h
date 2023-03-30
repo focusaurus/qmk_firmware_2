@@ -41,7 +41,5 @@
 #define SOFT_SERIAL_PIN D1  // or D1, D2, D3, E6
 #define SPLIT_USB_DETECT
 
-#define UNUSED_PINS
-
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
 #define DEBOUNCE 5
