@@ -1,0 +1,9 @@
+{
+  "keyboard_name": "Squeezebox",
+  "manufacturer": "Peter Lyons",
+  "usb": {
+    "device_version": "21.2.0",
+    "pid": "0x0001",
+    "vid": "0xEE16"
+  }
+}

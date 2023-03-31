@@ -22,7 +22,7 @@ enum {
 
 };
 
-qk_tap_dance_action_t tap_dance_actions[] = {
+tap_dance_action_t tap_dance_actions[] = {
 
   [TD_COMMA] = ACTION_TAP_DANCE_DOUBLE(KC_COMMA, KC_F12),
   /* [TD_DOT] = ACTION_TAP_DANCE_DOUBLE(KC_DOT, KC_QUES), */
@@ -111,7 +111,7 @@ KC_NO, KC_SCLN, KC_Q, KC_J, KC_K, KC_X,
 LT(NAVNUM, KC_BSPC), OSL(BANG), OSM(MOD_LSFT),
 
 // right hand
-KC_F, SFT_T(KC_G), CTL_T(KC_C), ALT_T(KC_R), GUI_T(KC_L), KC_NO,
+KC_F, KC_G, KC_C, KC_R, KC_L, KC_NO,
 KC_D, KC_H, KC_T, KC_N, KC_S, KC_NO,
 KC_B, KC_M, KC_W, KC_V, KC_Z, KC_NO,
 LT(KBFN, KC_ENT), LT(NAVNUM, KC_SPC), MT(MOD_RCTL, LEADER)
@@ -198,7 +198,7 @@ KC_TRNS, KC_TRNS, KC_TRNS
 // and the left hand has some assorted keeb stuff.
 
 // left hand
-KC_NO, TG(QWERTY), KC_NO, KC_VOLU, KC_NO, RESET,
+KC_NO, TG(QWERTY), KC_NO, KC_VOLU, KC_NO, QK_REBOOT,
 KC_NO, KC_NO, KC_NO, KC_MUTE, TG(VIEW), KC_NO,
 KC_NO, KC_NO, KC_NO, KC_VOLD, KC_NO, KC_NO,
 KC_TRNS, KC_TRNS, KC_TRNS,

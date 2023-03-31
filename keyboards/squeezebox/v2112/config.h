@@ -1,15 +1,13 @@
 #pragma once
 
-#include "config_common.h"
-
 /* USB Device descriptor parameter */
 // P"e"t"e" 16 Wheeler
-#define VENDOR_ID 0xEE16
-#define PRODUCT_ID 0x0001
+// #define VENDOR_ID 0xEE16
+// #define PRODUCT_ID 0x0001
 // v2112 decimal in hex
-#define DEVICE_VER 0x0840
-#define MANUFACTURER Peter Lyons
-#define PRODUCT squeezebox-v2112
+// #define DEVICE_VER 0x0840
+// #define MANUFACTURER Peter Lyons
+// #define PRODUCT squeezebox-v2112
 
 /* key matrix size */
 #define MATRIX_ROWS 6
